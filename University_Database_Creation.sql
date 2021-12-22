@@ -22,13 +22,14 @@ CREATE TABLE professor (
     office_num INT
 ); 
 
+-- Add foreign key to student(advisor_id) after creating professor table.
 ALTER TABLE student
 ADD FOREIGN KEY(advisor_id) REFERENCES professor(prof_id) ON DELETE SET NULL;
 
 CREATE TABLE course(
 	course_id INT PRIMARY KEY,
     course_name VARCHAR(40),
-    aff_major VARCHAR(40), --affiliated major
+    aff_major VARCHAR(40), -- affiliated major
     prof_id INT,
     FOREIGN KEY(prof_id) REFERENCES professor(prof_id) ON DELETE CASCADE
 );
